@@ -1,2 +1,0 @@
-# NewsFeeds
-Created with CodeSandbox
