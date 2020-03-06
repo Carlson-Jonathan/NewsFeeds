@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
-import ArticleBox from "../Fragments/ArticleBox";
-// import GetAPI from "../Utils/GetNewsAPIs";
 
-function NewsFeed() {
-  document.getElementById("pageHeading").innerHTML = "NEWS";
-
-  //STATE TO HOLD ARTICLES
-
-  let [article, setArticle] = useState(0);
+function GetAPI() {
   const [articles, setArticles] = useState([
     {
       title: "",
@@ -49,27 +42,6 @@ function NewsFeed() {
         });
     };
   }
-
-  let currentArticle = 0;
-  function previousArticle() {
-    console.log("currentArticle = " + currentArticle);
-    if (!article) setArticle(9);
-    else setArticle(--article);
-  }
-
-  function nextArticle() {
-    console.log("currentArticle = " + currentArticle);
-    if (article === 9) setArticle(0);
-    else setArticle(++article);
-  }
-
-  return (
-    <ArticleBox
-      index={article}
-      articles={articles}
-      buttons={[previousArticle, nextArticle]}
-    />
-  );
 }
 
-export default NewsFeed;
+export default GetAPI();

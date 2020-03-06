@@ -19,7 +19,7 @@ function ArticleBox(props) {
           <option>News Feed</option>
         </select>
         <div className="buttonBox">
-          <button onClick={() => props.setArticle(1)}> &lt; </button>
+          <button onClick={props.buttons[0]}> &lt; </button>
           <ul>
             <li>1</li>
             <li>2</li>
@@ -32,7 +32,7 @@ function ArticleBox(props) {
             <li>9</li>
             <li>10</li>
           </ul>
-          <button> &gt; </button>
+          <button onClick={props.buttons[1]}> &gt; </button>
         </div>
         {/* <h2>{source}</h2> */}
         <a href={url}>
