@@ -3,7 +3,7 @@ import React from "react";
 function Navbar(props) {
   return (
     <header>
-      <h1>Page Heading</h1>
+      <h1 id="pageHeading">HOME</h1>
       <ul className="navBox" id="navigationBar">
         <li onClick={() => props.changeState(0)} className="navItem">
           Home

@@ -1,6 +1,8 @@
 import React from "react";
 
 function Main() {
+  // document.getElementById("pageHeading").innerHTML = "HOME";
+
   return (
     <main>
       <h3>Sub Heading</h3>
