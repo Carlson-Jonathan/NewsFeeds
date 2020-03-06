@@ -6,9 +6,12 @@ import ArticleBox from "../Fragments/ArticleBox";
 function NewsFeed() {
   document.getElementById("pageHeading").innerHTML = "NEWS";
 
-  //STATE TO HOLD ARTICLES
-
+  /****************************************************************************
+   * Get and set API information:
+   ***************************************************************************/
+  // STATE TO HOLD ARTICLES
   let [article, setArticle] = useState(0);
+  const [newsSource, setNewsSource] = useState("national-geographic");
   const [articles, setArticles] = useState([
     {
       title: "",
@@ -20,54 +23,57 @@ function NewsFeed() {
     }
   ]);
 
-  //COMPONENT DID MOUNT HOOK TO PULL IN ARTICLES AND SET YOUR STATE
+  // COMPONENT DID MOUNT HOOK TO PULL IN ARTICLES AND SET YOUR STATE
   useEffect(() => {
     getArticles();
-  }, []); //empty array will throw an error ensure that effect is only updated once
+  }, []); // Empty array will throw an error ensure that effect is only updated once
 
-  //API CONFIG INFORMATION
+  // API CONFIG INFORMATION
   const API_KEY = "01ed3de96c7f45ba924e447cde09d6a4";
-  const API_source = "national-geographic";
+  // let API_source = "techcrunch";
+
   let getArticles;
-  if (articles[0].title === "") {
-    getArticles = async () => {
-      await Axios.get(
-        "https://newsapi.org/v2/top-headlines?sources=" +
-          API_source +
-          "&apiKey=" +
-          API_KEY
-      )
+  getArticles = async () => {
+    await Axios.get(
+      "https://newsapi.org/v2/top-headlines?sources=" +
+        newsSource +
+        "&apiKey=" +
+        API_KEY
+    )
+      .then(response => {
+        setArticles(response.data.articles);
+      })
+      .catch(() => {
+        console.log("Error getting API data");
+      });
+  };
 
-        .then(response => {
-          const data = response.data.articles;
-          setArticles(data);
-          return response.data.articles;
-        })
-
-        .catch(() => {
-          console.log("Error getting data");
-        });
-    };
-  }
-
-  let currentArticle = 0;
-  function previousArticle() {
-    console.log("currentArticle = " + currentArticle);
-    if (!article) setArticle(9);
+  /****************************************************************************
+   * Set specific article:
+   ***************************************************************************/
+  const previousArticle = () => {
+    if (!article) setArticle(articles.length - 1);
     else setArticle(--article);
-  }
+  };
 
-  function nextArticle() {
-    console.log("currentArticle = " + currentArticle);
-    if (article === 9) setArticle(0);
+  const nextArticle = () => {
+    if (article === articles.length - 1) setArticle(0);
     else setArticle(++article);
-  }
+  };
+
+  const changeNewsSource = async event => {
+    setNewsSource(event.target.value);
+    setArticle(0);
+    getArticles();
+  };
 
   return (
     <ArticleBox
       index={article}
       articles={articles}
-      buttons={[previousArticle, nextArticle]}
+      prevArticle={previousArticle}
+      nextArticle={nextArticle}
+      changeNewsSource={changeNewsSource}
     />
   );
 }

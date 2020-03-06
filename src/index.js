@@ -6,6 +6,15 @@
 import React from "react";
 import ReactDom from "react-dom";
 import App from "./App";
+// import { createStore, applyMiddleware } from "redux";
+// import { Provider } from "react-redux";
+// import reducers from "./reducers";
 
 // Syntax: ReactDom.render(What to display, where to display it (what element));
-ReactDom.render(<App />, document.getElementById("root"));
+// const store = createStore(reducers, []);
+ReactDom.render(
+  // <Provider store={store}>
+  <App />,
+  // </Provider>,
+  document.getElementById("root")
+);

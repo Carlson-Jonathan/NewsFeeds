@@ -77,13 +77,19 @@ li:hover {
   margin: 10px 0;
 }
 
-.newsBox select {
+.newsBox select,
+h2 {
+  text-align: center;
   color: #0b0c10;
   background-color: #c5c6c7;
   margin: 20px auto 0;
   font-weight: 600;
   font-size: 2em;
   width: 100%;
+}
+
+.newsBox select {
+  font-size: 16px;
 }
 
 .newsBox p {
@@ -107,7 +113,7 @@ li:hover {
 
 .buttonBox ul {
   display: inline-block;
-  margin: 0 10px 20px;
+  margin: 0 10px 5px;
 }
 
 .buttonBox li {

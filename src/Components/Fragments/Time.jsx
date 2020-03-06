@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 
-let today = new Date();
-
-let day = today.getDate();
-let year = today.getFullYear();
-var days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-var months = [
-  "Jan.",
-  "Feb.",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "Aug.",
-  "Sep.",
-  "Oct.",
-  "Nov.",
-  "Dec."
-];
-
-var weekday = days[today.getDay()];
-var month = months[today.getMonth()];
-
-let start = 0;
 function showTime() {
+  let today = new Date();
+
+  let day = today.getDate();
+  let year = today.getFullYear();
+  var days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  var months = [
+    "Jan.",
+    "Feb.",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug.",
+    "Sep.",
+    "Oct.",
+    "Nov.",
+    "Dec."
+  ];
+
+  var weekday = days[today.getDay()];
+  var month = months[today.getMonth()];
+
+  let start = 0;
   // setInterval() forces the function to re-render every XXXX ms!
   const now = new Date().toLocaleTimeString();
   const [time, setTime] = useState(now);

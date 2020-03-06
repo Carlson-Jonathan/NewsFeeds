@@ -8,18 +8,40 @@ function ArticleBox(props) {
   const url = props.articles[index].url;
   const image = props.articles[index].urlToImage;
   const author = props.articles[index].author;
+  const newsSources = [
+    "national-geographic",
+    "techcrunch",
+    "wired",
+    "techradar",
+    "google-news"
+  ];
+
+  // const setCategory = () => {
+  //   console.log("Category changed!");
+  //   return 0;
+  // };
+
   return (
     <main>
       <div className="newsBox">
-        <select>
-          <option>National Geographic</option>
-          <option>News Feed</option>
-          <option>News Feed</option>
-          <option>News Feed</option>
-          <option>News Feed</option>
+        {/* <label>Category:</label>
+        <select onChange={setCategory}>
+          <option value="0">Tech</option>
+          <option value="1">News</option>
+          <option value="2">Entertainment</option>
+        </select> */}
+
+        <select onChange={props.changeNewsSource}>
+          <option value="national-geographic">National Geographic</option>
+          <option value="techcrunch">Tech Crunch News</option>
+          <option value="wired">Wired</option>
+          <option value="techradar">TechRadar</option>
+          <option value="google-news">Google News</option>
         </select>
+
+        <h2>{source}</h2>
         <div className="buttonBox">
-          <button onClick={props.buttons[0]}> &lt; </button>
+          <button onClick={props.prevArticle}> &lt; </button>
           <ul>
             <li>1</li>
             <li>2</li>
@@ -32,10 +54,9 @@ function ArticleBox(props) {
             <li>9</li>
             <li>10</li>
           </ul>
-          <button onClick={props.buttons[1]}> &gt; </button>
+          <button onClick={props.nextArticle}> &gt; </button>
         </div>
-        {/* <h2>{source}</h2> */}
-        <a href={url}>
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <img src={image} alt="Unavailable" />
         </a>
         <h3>{title}</h3>
