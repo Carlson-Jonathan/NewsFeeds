@@ -2,7 +2,6 @@ import React from "react";
 // import DisplayNumbers from "./ArticleNumbers";
 
 let i = 0;
-
 const displayNumbers = (state, num) => {
   i++;
   let n = i;
@@ -11,11 +10,21 @@ const displayNumbers = (state, num) => {
   else style = { color: "#1f2833" };
   return (
     <React.Fragment>
-      <li onClick={() => num(n)} style={style}>
+      <li
+        onClick={() => {
+          num(n);
+          i = 0;
+        }}
+        style={style}
+      >
         {i}
       </li>
     </React.Fragment>
   );
+};
+
+const resetI = () => {
+  i = 0;
 };
 
 function ArticleBox(props) {
@@ -36,6 +45,9 @@ function ArticleBox(props) {
             props.changeNewsSource(event);
           }}
         >
+          <option value="" selected disabled hidden>
+            Select News Source
+          </option>
           <option value="national-geographic">National Geographic</option>
           <option value="techcrunch">Tech Crunch News</option>
           <option value="wired">Wired</option>
@@ -51,15 +63,14 @@ function ArticleBox(props) {
             onClick={() => {
               i = 0;
               props.prevArticle();
-              console.log(props.state);
             }}
           >
-            {" "}
-            &lt;{" "}
+            &lt;
           </button>
           <ul>
-            {props.articles.map(() =>
-              displayNumbers(props.state, props.setArticleNumber)
+            {props.articles.map(
+              () => displayNumbers(props.state, props.setArticleNumber),
+              resetI()
             )}
           </ul>
           <button
@@ -68,8 +79,7 @@ function ArticleBox(props) {
               props.nextArticle();
             }}
           >
-            {" "}
-            &gt;{" "}
+            &gt;
           </button>
         </div>
         <a href={url} target="_blank" rel="noopener noreferrer">

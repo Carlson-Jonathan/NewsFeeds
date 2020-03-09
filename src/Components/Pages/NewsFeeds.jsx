@@ -10,12 +10,20 @@ function NewsFeed() {
    * Get and set API information:
    ***************************************************************************/
   // STATE TO HOLD ARTICLES
+  // const [newsSource, setNewsSource] = useState("national-geographic");
+  let newsSource = "";
   let [article, setArticle] = useState(0);
-  const [newsSource, setNewsSource] = useState("national-geographic");
+
+  // let article = 0;
+  // const setArticle = num => {
+  //   article = num;
+  //   getArticles();
+  // };
+
   const [articles, setArticles] = useState([
     {
       title: "",
-      description: "",
+      description: "Select a news source from the drop-down above",
       ulr: "",
       urlToImage: "",
       author: "",
@@ -30,10 +38,9 @@ function NewsFeed() {
 
   // API CONFIG INFORMATION
   const API_KEY = "01ed3de96c7f45ba924e447cde09d6a4";
-  // let API_source = "techcrunch";
 
   let getArticles;
-  getArticles = async () => {
+  getArticles = async newSource => {
     await Axios.get(
       "https://newsapi.org/v2/top-headlines?sources=" +
         newsSource +
@@ -62,12 +69,11 @@ function NewsFeed() {
   };
 
   const setArticleNumber = artNum => {
-    console.log("number = " + artNum);
     setArticle(artNum - 1);
   };
 
-  const changeNewsSource = async event => {
-    setNewsSource(event.target.value);
+  const changeNewsSource = event => {
+    newsSource = event.target.value;
     setArticle(0);
     getArticles();
   };
