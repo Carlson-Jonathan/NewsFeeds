@@ -50,10 +50,6 @@ h1 {
   color: #66fcf1;
 }
 
-li:hover {
-  color: #f0f7f4;
-}
-
 .newsBox {
   max-width: 400px;
   background-color: #c5c6c7;
@@ -63,7 +59,7 @@ li:hover {
 }
 
 .newsBox img {
-  max-width: 380px;
+  max-width: 90%;
   height: auto;
   display: block;
   margin: auto;
@@ -119,6 +115,10 @@ h2 {
 .buttonBox li {
   display: inline-block;
   padding: 5px;
+}
+
+.buttonBox li:hover {
+  color: #f0f7f4;
 }
 
 footer {

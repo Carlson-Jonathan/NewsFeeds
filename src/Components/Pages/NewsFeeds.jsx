@@ -61,6 +61,11 @@ function NewsFeed() {
     else setArticle(++article);
   };
 
+  const setArticleNumber = artNum => {
+    console.log("number = " + artNum);
+    setArticle(artNum - 1);
+  };
+
   const changeNewsSource = async event => {
     setNewsSource(event.target.value);
     setArticle(0);
@@ -74,6 +79,8 @@ function NewsFeed() {
       prevArticle={previousArticle}
       nextArticle={nextArticle}
       changeNewsSource={changeNewsSource}
+      state={article}
+      setArticleNumber={setArticleNumber}
     />
   );
 }
