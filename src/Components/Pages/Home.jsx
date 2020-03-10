@@ -5,7 +5,7 @@ function Main() {
 
   return (
     <main>
-      <h3>Sub Heading</h3>
+      <h3>Home Page Comming Maybe</h3><br />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sem
         ligula, tristique vel diam vel, feugiat facilisis leo. Proin ultrices
@@ -15,8 +15,8 @@ function Main() {
         odio quis ipsum hendrerit, ut maximus nunc sodales. Nam vel est non est
         sagittis aliquam. Nullam vulputate metus quam, quis pharetra ligula
         vulputate eu
-      </p>
-      <h3>Sub Heading</h3>
+      </p><br />
+      <h3>Sub Heading</h3><br />
       <ul>
         <li>List Item 1</li>
         <li>List Item 2</li>

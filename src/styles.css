@@ -20,8 +20,7 @@ main {
   text-align: justify;
 }
 
-header,
-footer {
+header, footer {
   background-color: #0b0c10;
   margin: auto;
   text-align: center;
@@ -37,10 +36,14 @@ h1 {
   font-size: 2.5em;
 }
 
+h3, p, li {
+  color: #f0f7f4;
+}
+
 .navBox {
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 10px 20px 25px 20px;
   cursor: pointer;
 }
 
@@ -73,8 +76,7 @@ h1 {
   margin: 10px 0;
 }
 
-.newsBox select,
-h2 {
+.newsBox select, h2 {
   text-align: center;
   color: #0b0c10;
   background-color: #c5c6c7;
@@ -118,7 +120,12 @@ h2 {
 }
 
 .buttonBox li:hover {
-  color: #f0f7f4;
+  background-color: #d3d4d5;
+}
+
+#reactLogo {
+  width: 113px; 
+  margin: -23px 0;
 }
 
 footer {

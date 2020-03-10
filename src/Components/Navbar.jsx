@@ -20,11 +20,8 @@ function Navbar(props) {
         <li onClick={() => props.changeState(3)} className="navItem">
           Link 3
         </li>
-        |
-        <li onClick={() => props.changeState(4)} className="navItem">
-          Link 4
-        </li>
-      </ul>
+      </ul><br />
+      <span style={{color: "#e0e0e8"}}>Made with</span><img id="reactLogo" src="https://media2.giphy.com/media/iFmw13LV1hHhViPPWz/source.gif" alt="React logo"/>
     </header>
   );
 }
