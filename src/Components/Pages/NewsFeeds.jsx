@@ -31,6 +31,7 @@ function NewsFeed() {
   }, []); // Empty array will throw an error ensure that effect is only updated once
 
   const API_KEY = "01ed3de96c7f45ba924e447cde09d6a4";
+  const [APIBroken, setAPIBroken] = useState(0);
 
   // Reqeust and set API object
   const getArticles = async newSource => {
@@ -40,7 +41,13 @@ function NewsFeed() {
       .then(response => {
         setArticles(response.data.articles);
       })
-      .catch(() => { console.log("Error getting API data for " + newsSource); });
+      .catch(() => { 
+        console.log("Error retrieving API data from " + newsSource);
+        articles[0].title = <span style={{color: "red"}}>API servers are not responding!</span>;
+        articles[0].description = "If you are reading this, that means the server where this app retrieves its news articles from is down. Please check back and hopefully they will have gotten their stuff together.";
+        if(APIBroken === 0)
+          setAPIBroken(1);
+      });
   };
 
   /****************************************************************************
